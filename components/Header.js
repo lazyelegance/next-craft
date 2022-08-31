@@ -4,7 +4,6 @@ import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
 import {
   HomeIcon,
-  ArchiveIcon,
   UserIcon,
   MenuIcon
 } from '@heroicons/react/outline'
