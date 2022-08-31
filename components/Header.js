@@ -31,13 +31,6 @@ const NavBar = ({ siteConfigObj }) => {
     },
     {
       id: 1,
-      name: siteConfigObj['Archive Menu Text'],
-      to: '/archive',
-      icon: <ArchiveIcon className='inline-block mb-1 h-5 w-5' />,
-      show: true
-    },
-    {
-      id: 2,
       name: siteConfigObj['About Menu Text'],
       to: '/about',
       icon: <UserIcon className='inline-block mb-1 h-5 w-5' />,
