@@ -55,16 +55,18 @@ module.exports = async (req, res) => {
           <a href="/" class="navigation__link">${siteConfigObj['Home Menu Text']}</a>
         </li>
         <li class="navigation__item">
-          <a href="/about" target="_blank" class="navigation__link">${siteConfigObj['About Menu Text']}</a>
+          <a href="/notes" class="navigation__link">${siteConfigObj['About Menu Text']}</a>
+        </li>
+        <li class="navigation__item">
+          <a href="/reading-list" class="navigation__link">${siteConfigObj['Reading Menu Text']}</a>
+        </li>
+        <li class="navigation__item">
+          <a href="https://craft.do" target="_blank" class="navigation__craft">Made with Craft</a>
         </li>
       </ul>
       <p class="footer">${siteConfigObj['Footer Text']}</p>
     </nav>
-
     <div class="navigation__icon">
-      <a target="_blank" href=${siteConfigObj['Third Social Link']}>
-        <img alt="Github" src="${siteConfigObj['Third Social Icon']}" />
-      </a>
     </div>
 
   </div>
@@ -177,12 +179,26 @@ const headStr = `
       display: inline-block;
       padding: 0.5rem 1rem;
       color: #494b4e;
-      font-size: 1.2rem;
+      font-size: 0.8rem;
       text-decoration: none;
       transition: all 0.2s;
     }
     .navigation__link:hover {
       color: #494b4e;
+      transform: scale(1.2);
+    }
+
+    .navigation__craft:link,
+    .navigation__craft:visited {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: #557ebd;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .navigation__craft:hover {
+      color: #557ebd;
       transform: scale(1.2);
     }
 

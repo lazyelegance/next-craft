@@ -2,11 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import BLOG from '@/blog.config'
 import { useRouter } from 'next/router'
-import {
-  HomeIcon,
-  UserIcon,
-  MenuIcon
-} from '@heroicons/react/outline'
+import { HomeIcon, UserIcon, MenuIcon } from '@heroicons/react/outline'
 import ThemeSwitcher from './ThemeSwitcher.js'
 
 const NavBar = ({ siteConfigObj }) => {
@@ -31,7 +27,21 @@ const NavBar = ({ siteConfigObj }) => {
     {
       id: 1,
       name: siteConfigObj['About Menu Text'],
-      to: '/about',
+      to: '/notes',
+      icon: <UserIcon className='inline-block mb-1 h-5 w-5' />,
+      show: true
+    },
+    {
+      id: 2,
+      name: siteConfigObj['Reading Menu Text'],
+      to: '/reading-list',
+      icon: <UserIcon className='inline-block mb-1 h-5 w-5' />,
+      show: true
+    },
+    {
+      id: 3,
+      name: siteConfigObj['Credits Menu Text'],
+      to: '/credits',
       icon: <UserIcon className='inline-block mb-1 h-5 w-5' />,
       show: true
     }
@@ -40,16 +50,21 @@ const NavBar = ({ siteConfigObj }) => {
     <div className='flex'>
       <ul className='hidden md:flex md:gap-1'>
         {links.map(
-          (link) => link.show && (
-            <Link passHref key={link.id} href={link.to}>
-              <li className={`${activeMenu === link.to ? 'bg-gray-100 dark:bg-gray-700' : ''} hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}>
-                <a className='font-light'>
-                  {link.icon}
-                  <span className='inline-block m-1'>{link.name}</span>
-                </a>
-              </li>
-            </Link>
-          )
+          (link) =>
+            link.show && (
+              <Link passHref key={link.id} href={link.to}>
+                <li
+                  className={`${
+                    activeMenu === link.to ? 'bg-gray-100 dark:bg-gray-700' : ''
+                  } hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer rounded-lg block py-1 px-2 nav`}
+                >
+                  <a className='font-light'>
+                    {link.icon}
+                    <span className='inline-block m-1'>{link.name}</span>
+                  </a>
+                </li>
+              </Link>
+            )
         )}
       </ul>
 
@@ -130,11 +145,19 @@ const Header = ({ navBarTitle, siteConfigObj }) => {
           <Link passHref href='/'>
             <a aria-label={siteConfigObj['Site Title']}>
               <div className='h-6 hover:text-blue-500 dark:hover:text-blue-500 fill-current'>
-                <img alt='logo' className='w-6 h-6' src={siteConfigObj['Site Logo']} />
+                <img
+                  alt='logo'
+                  className='w-6 h-6'
+                  src={siteConfigObj['Site Logo']}
+                />
               </div>
             </a>
           </Link>
-          <p className={`ml-2 font-medium ${!showTitle ? 'hidden' : 'hidden xl:block'}`}>
+          <p
+            className={`ml-2 font-medium ${
+              !showTitle ? 'hidden' : 'hidden xl:block'
+            }`}
+          >
             {navBarTitle}
           </p>
         </div>
